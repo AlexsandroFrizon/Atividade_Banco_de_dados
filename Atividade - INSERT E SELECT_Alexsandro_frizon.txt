@@ -1,0 +1,134 @@
+===Criar um banco de dados chamado EscolaDB;===
+===============================================
+
+CREATE DATABASE db_EscolaDB;
+
+===============================================
+Criar as tabelas Alunos, Professores e Turmas =
+===============================================
+CREATE TABLE tabela_alunos(
+    matricula INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(200) NOT NULL,
+    data_nascimento DATE NOT NULL, 
+    cpf VARCHAR(15) NOT NULL,
+    email VARCHAR(250) NOT NULL
+);
+
+CREATE TABLE tabela_professores(
+    siape VARCHAR(20) NOT NULL PRIMARY KEY,
+    nome VARCHAR(150) NOT NULL,
+    data_nascimento DATE NOT NULL, 
+    area VARCHAR(200) NOT NULL,
+    email VARCHAR(250) NOT NULL
+);
+
+CREATE TABLE tabela_turma (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    turma VARCHAR(100) NOT NULL,
+    ano VARCHAR(4) NOT NULL
+);
+
+======================================================================================================
+ Criar os comandos SQL para inserção dos dados nas respectivas tabelas, conforme os slides 3, 4 e 5; =
+======================================================================================================
+
+INSERT  INTO tabela_alunos (cpf, data_nascimento, email, matricula, nome) VALUES('000.000.000-11', '1908-12-12', ' marcele.silva@bento.ifrs.edu.br', 1000001, 'Marcele da Silva'); 
+
+INSERT  INTO tabela_alunos (cpf, data_nascimento, email, matricula, nome) VALUES('000.009.239-99', '2010-09-09',' martide.rocha@gmail.com', 1000002, 'Matirde da Rocha'); 
+
+INSERT  INTO tabela_alunos (cpf, data_nascimento, email, matricula, nome) VALUES('999.999.000.77', '2010-01-01', ' joao.santos@gmail.com', 1000003, 'João dos Santos'); 
+
+INSERT  INTO tabela_alunos (cpf, data_nascimento, email, matricula, nome) VALUES('11.222.333.44', '2001-05-04', 'maria.rita@gmail.com', 1000004, 'Maria Rita'); 
+
+INSERT  INTO tabela_alunos (cpf, data_nascimento, email, matricula, nome) VALUES('55.666.777.88', '1998-04-05', 'Zezinho.oliveira@gmail.com', 1000005, 'Zézinho Oliveira'); 
+
+INSERT  INTO tabela_alunos (cpf, data_nascimento, email, matricula, nome) VALUES('999.101.101-11 ', '1984-12-12', 'carol.rosa@mail.com', 1000006 , 'Carol da Rosa'); 
+
+INSERT  INTO tabela_alunos (cpf, data_nascimento, email, matricula, nome) VALUES('121.121.121-13', '1980-02-02', ' marina.rosa@gmail.coM', 1000007 , 'Marina da Rosa'); 
+
+
+
+INSERT INTO tabela_professores(area, data_nascimento, email, nome, siape) VALUES('informática/Programação', '2010-09-09', 'ronaldo.rosa@bento.ifrs.edu.br', 'Ronaldo Serpa da Rosa ', '5000001');
+
+INSERT INTO tabela_professores(area, data_nascimento, email, nome, siape) VALUES('informática/Programação', '2001*05-04', 'Thyago.salva@bento.ifrs.edu.br', 'Thyago Salvá', '4000002');
+
+INSERT INTO tabela_professores(area, data_nascimento, email, nome, siape) VALUES('informática/Programação', '1984-12-12', 'Mauricio.rosito@bento.ifrs.edu.br', 'Mauricio Rosito ', '6500003');
+
+INSERT INTO tabela_professores(area, data_nascimento, email, nome, siape) VALUES('Informática/Redes', '1908-12-12', 'ivan.pra@bento.ifrs.edu.br', 'Ivan Prá ', '3300004');
+
+INSERT INTO tabela_professores(area, data_nascimento, email, nome, siape) VALUES('Matemática', '1998-04-05', 'delair.oliveira@bento.ifrs.edu.br', 'Delair Oliveira  ', '7700005');
+
+INSERT INTO tabela_professores(area, data_nascimento, email, nome, siape) VALUES('Matemática', '1980-02-02', 'diego.silva@bento.ifrs.edu.br', 'Diego da Silva', '9900006');
+
+INSERT INTO tabela_professores(area, data_nascimento, email, nome, siape) VALUES('Física', '2010-01-10', 'paulo.rochaa@bento.ifrs.edu.br', 'Paulo Rocha', '1999007');
+
+
+INSERT INTO tabela_turma (id, ano, turma ) VALUES (1, '1º ano Info ', '2018');
+
+INSERT INTO tabela_turma (id, ano, turma ) VALUES (2, '1º ano Info ', '2019');
+
+INSERT INTO tabela_turma (id, ano, turma ) VALUES (3, '1º ano Info ', '2020');
+
+INSERT INTO tabela_turma (id, ano, turma ) VALUES (4, '2º ano Info ', '2019');
+
+INSERT INTO tabela_turma (id, ano, turma ) VALUES (5, '2º ano Info ', '2020');
+
+INSERT INTO tabela_turma (id, ano, turma ) VALUES (6, '3º ano Info ', '2019');
+
+INSERT INTO tabela_turma (id, ano, turma ) VALUES (7, '3º ano Info ', '2020');
+
+=======================================================================================================
+Criar os comandos SQL para inserção de mais 5 registros em cada tabela (os dados ficam a seu critério)=
+=======================================================================================================
+
+INSERT  INTO tabela_alunos (cpf, data_nascimento, email, matricula, nome) VALUES('000.000.111-12', '2001-01-15', ' alexsandro.frizon@bento.ifrs.edu.br', 1000008, 'Alexsandro Frizon'); 
+
+INSERT  INTO tabela_alunos (cpf, data_nascimento, email, matricula, nome) VALUES('205.000.111-12', '2010-01-25', ' marta.frizon@bento.ifrs.edu.br', 1000009, 'Marta Frizon'); 
+
+INSERT  INTO tabela_alunos (cpf, data_nascimento, email, matricula, nome) VALUES('205.557.111-12', '2010-09-19', ' clezio.frizon@bento.ifrs.edu.br', 1000010, 'Clezio Frizon'); 
+
+INSERT  INTO tabela_alunos (cpf, data_nascimento, email, matricula, nome) VALUES('205.557.891-12', '2000-09-29', ' alessandra.frizon@bento.ifrs.edu.br', 1000011, 'Alessandra Frizon'); 
+
+INSERT  INTO tabela_alunos (cpf, data_nascimento, email, matricula, nome) VALUES('205.557.891-12', '2000-09-18', ' pedro.frizon@bento.ifrs.edu.br', 1000012, 'Pedro Frizon'); 
+
+
+INSERT INTO tabela_professores(area, data_nascimento, email, nome, siape) VALUES('Programação', '2015-09-09', 'marcelo.bola@bento.ifrs.edu.br', 'Marcelo Bola', '5000011');
+
+INSERT INTO tabela_professores(area, data_nascimento, email, nome, siape) VALUES('Programação', '2016-09-09', 'tiago.elias@bento.ifrs.edu.br', 'Tiago Elias', '5000012');
+
+INSERT INTO tabela_professores(area, data_nascimento, email, nome, siape) VALUES('Programação', '2017-09-09', 'roberto.elias@bento.ifrs.edu.br', 'Roberto Elias', '5000013');
+
+INSERT INTO tabela_professores(area, data_nascimento, email, nome, siape) VALUES('Programação', '2018-09-09', 'eliane.dias@bento.ifrs.edu.br', 'Eliane Dias', '5000014');
+
+INSERT INTO tabela_professores(area, data_nascimento, email, nome, siape) VALUES('Programação', '2014-09-09', 'julia.dantas@bento.ifrs.edu.br', 'Julia Dantas', '5000015');
+
+INSERT INTO tabela_turma (id, ano, turma ) VALUES (8, '4º ano Info ', '2020');
+
+INSERT INTO tabela_turma (id, ano, turma ) VALUES (9, '4º ano Info ', '2021');
+
+INSERT INTO tabela_turma (id, ano, turma ) VALUES (10, '5º ano Info ', '2019');
+
+INSERT INTO tabela_turma (id, ano, turma ) VALUES (11, '5º ano Info ', '2020');
+
+INSERT INTO tabela_turma (id, ano, turma ) VALUES (12, '5º ano Info ', '2021');
+
+========================================================================================
+Criar um comando SQL para buscar todos os professores da área "Informática/Programação"=
+========================================================================================
+
+
+SELECT * FROM `tabela_professores` WHERE area LIKE 'informática/%Program ação%';
+
+
+===================================================================
+Criar um comando para buscar todos os alunos com sobrenome "Rosa"==
+===================================================================
+
+SELECT * FROM `tabela_alunos` WHERE nome LIKE '%rosa%';
+
+==============================================================================================
+ Criar um comando para buscar todos os alunos maiores de 15 anos (considerar a data de hoje)==
+==============================================================================================
+
+SELECT * FROM `tabela_alunos` WHERE data_nascimento < '2006-01-01';
+
