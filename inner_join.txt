@@ -1,0 +1,33 @@
+Criar a tabela Alunos_Turmas (slide 3);
+
+CREATE TABLE `db_escoladb`.`ALUNOS_TURMAS` (
+
+`Matricula` INT NOT NULL,
+
+
+`IdTurma` INT NOT NULL )
+
+*******************************************************************
+
+Definir as chaves primárias da tabela Alunos_Turmas (slide 3);
+
+ALTER TABLE `db_escoladb`.`ALUNOS_TURMAS` ADD PRIMARY KEY
+
+(`Matricula`, `IdTurma`)
+
+*******************************************************************
+
+Criar as chaves estrangeiras para a tabela Alunos_Turmas (slide 4)
+
+ALTER TABLE `ALUNOS_TURMAS` ADD CONSTRAINT
+`FK_ALUNOS_ALUNOS_TURMAS` FOREIGN KEY (Matricula) REFERENCES tabela_alunos(Matricula)
+
+ALTER TABLE `ALUNOS_TURMAS` ADD CONSTRAINT
+`FK_TURMAS_ALUNOS_TURMAS` FOREIGN KEY (IdTurma) REFERENCES tabela_turma(id)
+
+******************************************************************
+Criar os comandos SQL para inserção dos dados na tabela Alunos_Turmas, conforme a tabela
+apresentada no slide 2;
+ 
+
+SELECT alunos_turmas.Matricula,IdTurma FROM alunos_turmas INNER JOIN tabela_alunos ON alunos_turmas.Matricula = tabela_alunos.matricula

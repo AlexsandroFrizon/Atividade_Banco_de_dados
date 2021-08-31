@@ -1,0 +1,37 @@
+● Criar um comando SQL para atualizar o CPF do aluno com a matrícula 1000002 para 089.777.354-22
+
+UPDATE tabela_alunos SET cpf = '089.777.354-22' WHERE matricula = 1000002
+
+**************************************************************************************
+Criar um comando SQL para atualizar a área dos professores da área de informática de
+"Informática/Programação" e "Informática/Redes" para "Informática Geral"            
+
+UPDATE tabela_professores SET area = 'Informática Geral' WHERE area = 'informática/Redes';
+UPDATE tabela_professores SET area = 'Informática Geral' WHERE area = 'Informática/Programação';
+
+*****************************************************************************************************
+Criar um comando SQL para atualizar os dados do professor com SIAPE 7700005 para Rogério da
+Nóbrega, 22/04/1987, Física, rogerio.nobrega@gmail.com
+
+UPDATE tabela_professores SET nome = 'Rogério da Nóbrega', data_nascimento ='1987-04-22', area = 'Física', email = 'rogerio.nobrega@gmail.com' WHERE siape = '7700005';
+
+***********************************************************************************************************************************************************************
+Criar um comando SQL para apagar todos os alunos com matrícula de 1000003 a 1000005
+
+DELETE FROM tabela_alunos WHERE matricula = 1000003;
+DELETE FROM tabela_alunos WHERE matricula = 1000004;
+DELETE FROM tabela_alunos WHERE matricula = 1000005;
+
+
+***************************************************************************************************
+Criar um comando SQL para apagar os professores da área de informática Geral que nasceram antes
+de 01/01/2000
+
+
+DELETE FROM tabela_professores WHERE area = 'Informática Geral' AND data_nascimento < '2000-01-01'
+
+****************************************************************************************************
+Criar um comando SQL para apagar todas a turmas da Info de 2020
+
+
+DELETE FROM tabela_turma WHERE turma = '2020'
