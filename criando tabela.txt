@@ -1,0 +1,34 @@
+create database aluno_CLINICA;
+
+
+ Create table sala(
+ numero_sala int, 
+ andar int(3) UNIQUE NOT NULL,
+ CONSTRAINT CK_sala_nuero_sala CHECK (numero_sala > 1 and numero_sala<50),
+ CONSTRAINT PK_sala PRIMARY KEY (numero_sala)); 
+
+ describe sala;
+
+
+ CREATE TABLE medicos (
+ crm varchar(15),
+ nome varchar(40) NOT NULL,
+ idade int,
+ especialidade char(20) NOT NULL DEFAULT 'Ortopedia',
+ cpf varchar(15) UNIQUE NOT NULL,
+ data_de_admissao date,
+ CONSTRAINT CK_medicos_idade CHECK (idade > 23),
+ CONSTRAINT PK_medicos PRIMARY KEY(crm));
+
+ describe medicos;
+
+ CREATE TABLE pacientes(
+ rg varchar (15),
+ nome varchar (40) NOT NULL,
+ data_nascimento date,
+ cidade char (30) DEFAULT 'Itabuna',
+ doenca varchar (40) NOT NULL,
+ plano_saude varchar (40) NOT NULL DEFAULT 'SUS',
+ CONSTRAINT PK_pacientes PRIMARY KEY(rg)
+ );
+ 
