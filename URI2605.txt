@@ -1,0 +1,4 @@
+SELECT produtos.name, fornecedores.name
+FROM products produtos  INNER JOIN providers fornecedores ON
+     produtos.id_providers	= fornecedores.id
+WHERE produtos.id_categories = 6
