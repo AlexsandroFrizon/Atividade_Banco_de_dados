@@ -9,6 +9,43 @@ Nome: Alexsandro Frizon
  -> URI - 2605
 
      SELECT produtos.name, fornecedores.name
-     FROM products produtos  INNER JOIN           providers fornecedores ON
-     produtos.id_providers = fornecedores.id
+     FROM products produtos  INNER JOIN   providers fornecedores 
+     ON produtos.id_providers = fornecedores.id
      WHERE produtos.id_categories = 6
+
+ -> URI - 2608
+
+     SELECT MAX(price), MIN(price)
+     FROM products
+
+ -> URI - 2609
+
+    SELECT categ.name, SUM(produtos.amount)
+    FROM categories categ INNER JOIN products produtos 
+         ON categ.id = produtos.id_categories 
+    GROUP BY categ.name
+
+ -> URI - 2610
+
+    SELECT round(AVG(price), 2) as price
+    FROM products
+
+ -> URI - 2614
+
+    SELECT clientes.name, relatorios.rentals_date
+    FROM customers clientes INNER JOIN rentals relatorios ON
+        clientes.id = relatorios.id_customers
+    WHERE relatorios.rentals_date BETWEEN '2016-09-01' AND '2016-09-30'
+
+ -> URI - 2738
+
+    SELECT candidato.name, cast((((pontuação.math * 2) + (pontuação.specific * 3) + (pontuação.project_plan * 5)) / 10) AS NUMERIC(15, 2)) AS avg
+   FROM candidate candidato INNER JOIN score pontuação  ON 
+   candidato.id = pontuação .candidate_id
+
+ -> URI - 2741
+
+    SELECT concat('Approved: ', name) as name, grade
+    FROM students
+    WHERE grade >= 7
+    ORDER BY grade DESC
