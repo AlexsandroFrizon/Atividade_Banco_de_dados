@@ -40,8 +40,8 @@ Nome: Alexsandro Frizon
  -> URI - 2738
 
     SELECT candidato.name, cast((((pontuação.math * 2) + (pontuação.specific * 3) + (pontuação.project_plan * 5)) / 10) AS NUMERIC(15, 2)) AS avg
-   FROM candidate candidato INNER JOIN score pontuação  ON 
-   candidato.id = pontuação .candidate_id
+    FROM candidate candidato INNER JOIN score pontuação  ON 
+    candidato.id = pontuação .candidate_id
 
  -> URI - 2741
 
@@ -49,3 +49,15 @@ Nome: Alexsandro Frizon
     FROM students
     WHERE grade >= 7
     ORDER BY grade DESC
+
+ -> URI - 2991
+
+    SELECT DEPARTAMENTO AS "Nome Departamento", COUNT(EMPREGADO) AS "Numero de Empregados", (ROUND(SUM(R.LIQUIDO) / COUNT(EMPREGADO), 2) || '') AS "Media Salarial",        (MAX(R.LIQUIDO) || '') AS "Maior Salario" , (MIN(R.LIQUIDO) || '') AS "Menor Salario" FROM ( SELECT DEP.NOME AS DEPARTAMENTO, EMP.NOME AS EMPREGADO, ROUND(( SELECT     COALESCE(SUM(V.VALOR), 0) FROM DEPARTAMENTO DEPAR JOIN DIVISAO DIVIS ON DEPAR.COD_DEP = DIVIS.COD_DEP JOIN EMPREGADO EMPRE ON DIVIS.COD_DIVISAO = EMPRE.LOTACAO_DIV     JOIN EMP_VENC EV ON EMPRE.MATR = EV.MATR JOIN VENCIMENTO V ON EV.COD_VENC = V.COD_VENC WHERE EMPRE.NOME = EMP.NOME ), 2) - ( SELECT COALESCE(SUM(D.VALOR), 0) FROM      DEPARTAMENTO DEPA JOIN DIVISAO DIVI ON DEPA.COD_DEP = DIVI.COD_DEP JOIN EMPREGADO EMPR ON DIVI.COD_DIVISAO = EMPR.LOTACAO_DIV JOIN EMP_DESC ED ON EMPR.MATR =           ED.MATR JOIN DESCONTO D ON ED.COD_DESC = D.COD_DESC WHERE EMPR.NOME = EMP.NOME ) AS LIQUIDO FROM DEPARTAMENTO DEP JOIN DIVISAO DIV ON DEP.COD_DEP = DIV.COD_DEP         JOIN EMPREGADO EMP ON DIV.COD_DIVISAO = EMP.LOTACAO_DIV GROUP BY DEPARTAMENTO, EMPREGADO ORDER BY LIQUIDO DESC) AS R GROUP BY R.DEPARTAMENTO ORDER BY "Media         Salarial" DESC;
+
+ -> URI - 2994
+
+    SELECT doutor.name, round(sum((atendimentos.hours * 150.0) + (((atendimentos.hours * 150.0) * trabalho.bonus) / 100.0)), 1) as salary
+    FROM doctors doutor INNER JOIN attendances atendimentos ON doutor.id = atendimentos.id_doctor
+               INNER JOIN work_shifts trabalho ON trabalho .id = atendimentos.id_work_shift 
+    GROUP BY doutor.id
+    ORDER BY salary DESC
